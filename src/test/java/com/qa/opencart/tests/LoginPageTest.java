@@ -22,7 +22,7 @@ import static com.qa.opencart.constants.AppConstants.*;
 @Story("US 101: Implement login page for opencart application")
 public class LoginPageTest extends BaseTest{
 	
-	@Description("checking opencart login title")
+	@Description("checking opencart login title...")
 	@Severity(SeverityLevel.MINOR)
 	@Owner("Rajat")
 	@Test
