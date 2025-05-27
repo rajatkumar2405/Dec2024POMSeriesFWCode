@@ -10,7 +10,6 @@ import org.testng.ITestNGMethod;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Parameters;
 
@@ -21,8 +20,6 @@ import com.qa.opencart.pages.LoginPage;
 import com.qa.opencart.pages.ProductInfoPage;
 import com.qa.opencart.pages.RegisterPage;
 import com.qa.opencart.pages.SearchResultsPage;
-import com.qa.opencart.utils.LogUtil;
-
 import io.qameta.allure.Description;
 
 //@Listeners(ChainTestListener.class)
@@ -40,15 +37,17 @@ public class BaseTest {
 
 
 	@Description("initialiste the driver and properties")
-	@Parameters({"browser"})
+	@Parameters({"browser","browserversion","testname"})
 	@BeforeTest
-	public void setup(String browserName) {
+	public void setup(String browserName, String browserVersion, String testname) {
 		df = new DriverFactory();
 		prop=df.initProp();
 		
 		//browserName is passed from .xml file
 		if(browserName!=null) {
 			prop.setProperty("browser", browserName);
+			prop.setProperty("browserversion", browserVersion);
+			prop.setProperty("testname", testname);
 		}
 		
 
